@@ -50,10 +50,10 @@ class PluginSyncManagerPlugin extends Plugin {
     await this.loadSettings();
     this.registerView(VIEW_TYPE, (leaf) => new PluginSyncManagerView(leaf, this));
     this.addSettingTab(new PluginSyncManagerSettingTab(this.app, this));
-    this.addRibbonIcon("refresh-cw", "Plugin Sync Manager", () => this.activateView());
+    this.addRibbonIcon("refresh-cw", "Extensions Sync Manager", () => this.activateView());
     this.addCommand({
       id: "open-manager",
-      name: "Open Plugin Sync Manager",
+      name: "Open Extensions Sync Manager",
       callback: () => this.activateView(),
     });
   }
@@ -184,7 +184,7 @@ class PluginSyncManagerView extends ItemView {
   }
 
   getDisplayText() {
-    return "Plugin Sync Manager";
+    return "Extensions Sync Manager";
   }
 
   getIcon() {
@@ -838,7 +838,7 @@ class PluginSyncManagerView extends ItemView {
   renderShell() {
     this.rootEl.replaceChildren();
     const title = document.createElement("h2");
-    title.textContent = "Plugin Sync Manager";
+    title.textContent = "Extensions Sync Manager";
     this.rootEl.appendChild(title);
 
     const toolbar = document.createElement("div");
@@ -902,7 +902,7 @@ class PluginSyncManagerView extends ItemView {
       if (!confirm("Refresh baseline hashes without copying files?")) return;
       try {
         this.refreshBaseline();
-        new Notice("Plugin sync baseline refreshed.");
+        new Notice("Extension sync baseline refreshed.");
         this.refresh();
       } catch (error) {
         new Notice(error.message);

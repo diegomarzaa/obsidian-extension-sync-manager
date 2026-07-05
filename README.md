@@ -1,4 +1,4 @@
-# Plugin Sync Manager
+# Extensions Sync Manager
 
 Manage two Obsidian configuration profiles from one vault, usually a desktop profile in `.obsidian` and a mobile profile in `.obsidian_mobile`.
 
@@ -6,7 +6,7 @@ The plugin shows plugins and base JSON configuration files side by side, lets yo
 
 ## Features
 
-- Compare desktop and mobile plugin folders by content hash.
+- Compare desktop and mobile extension folders by content hash.
 - Keep plugin code and plugin configuration together when copying a plugin.
 - Mark plugins as both devices, PC only, mobile only, frozen, ignored, or remove completely.
 - Configure enabled or disabled state independently for PC and mobile.
@@ -17,11 +17,11 @@ The plugin shows plugins and base JSON configuration files side by side, lets yo
 
 ## Requirements
 
-Plugin Sync Manager is desktop-only because it uses Node.js file-system APIs to read, copy, and remove files inside hidden Obsidian configuration folders.
+Extensions Sync Manager is desktop-only because it uses Node.js file-system APIs to read, copy, and remove files inside hidden Obsidian configuration folders.
 
 ## Settings
 
-Open Obsidian settings, then Plugin Sync Manager.
+Open Obsidian settings, then Extensions Sync Manager.
 
 - Desktop config folder: defaults to `.obsidian`.
 - Mobile config folder: defaults to `.obsidian_mobile`.
@@ -33,9 +33,9 @@ The migration button can import an older policy and state from `99 - Obsidian/pl
 
 ## Privacy
 
-Plugin Sync Manager does not use the network, telemetry, accounts, ads, or an auto-update mechanism.
+Extensions Sync Manager does not use the network, telemetry, accounts, ads, or an auto-update mechanism.
 
-The plugin accesses files inside your vault, including hidden Obsidian configuration folders such as `.obsidian` and `.obsidian_mobile`. It can copy, overwrite, and remove plugin/configuration files only after you click an action and confirm it.
+The plugin accesses files inside your vault, including hidden Obsidian configuration folders such as `.obsidian` and `.obsidian_mobile`. It can copy, overwrite, and remove extension/configuration files only after you click an action and confirm it.
 
 ## Installation
 
@@ -45,7 +45,7 @@ For manual installation, copy `main.js`, `manifest.json`, and `styles.css` into:
 <vault>/.obsidian/plugins/plugin-sync-manager/
 ```
 
-Then enable Plugin Sync Manager from Obsidian community plugin settings.
+Then enable Extensions Sync Manager from Obsidian community plugin settings.
 
 ## License
 

@@ -1,9 +1,9 @@
 {
   "id": "plugin-sync-manager",
-  "name": "Plugin Sync Manager",
-  "version": "0.1.0",
+  "name": "Extensions Sync Manager",
+  "version": "0.1.1",
   "minAppVersion": "1.5.0",
-  "description": "Manage desktop and mobile plugin and configuration profiles.",
+  "description": "Manage desktop and mobile extensions and configuration profiles.",
   "author": "Diego Marza",
   "isDesktopOnly": true
 }
