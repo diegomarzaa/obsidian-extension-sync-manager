@@ -86,14 +86,12 @@ class PluginSyncManagerPlugin extends Plugin {
   async loadSettings() {
     const rawData = await this.loadData() || {};
     const hasStructuredData = rawData.settings || rawData.policy || rawData.state;
-    const legacySettings = hasStructuredData ? rawData.settings || {} : rawData;
+    const savedSettings = hasStructuredData ? rawData.settings || {} : rawData;
     this.pluginData = {
-      settings: Object.assign({}, DEFAULT_SETTINGS, legacySettings),
+      settings: Object.assign({}, DEFAULT_SETTINGS, savedSettings),
       policy: hasStructuredData ? rawData.policy || null : null,
       state: hasStructuredData ? rawData.state || { items: {} } : { items: {} },
     };
-    delete this.pluginData.settings.policyPath;
-    delete this.pluginData.settings.statePath;
     this.settings = this.pluginData.settings;
   }
 
@@ -147,18 +145,6 @@ class PluginSyncManagerSettingTab extends PluginSettingTab {
       DEFAULT_SETTINGS.backupDir
     );
 
-    new Setting(containerEl).setName("Migration").setHeading();
-    new Setting(containerEl)
-      .setName("Import legacy policy")
-      .setDesc("Imports existing policy and baseline data from the legacy sync folder into data.json. The source files are not removed.")
-      .addButton((button) => {
-        button
-          .setButtonText("Import")
-          .onClick(async () => {
-            const imported = await this.importLegacyFiles();
-            new Notice(imported ? "Legacy extension sync files imported." : "No legacy files were found.");
-          });
-      });
   }
 
   addPathSetting(name, desc, key, fallback) {
@@ -176,23 +162,6 @@ class PluginSyncManagerSettingTab extends PluginSettingTab {
       });
   }
 
-  async importLegacyFiles() {
-    const adapter = this.plugin.app.vault.adapter;
-    let imported = false;
-
-    const policyPath = "99 - Obsidian/plugin-sync/policy.json";
-    const statePath = "99 - Obsidian/plugin-sync/state.json";
-    if (await adapter.exists(policyPath)) {
-      this.plugin.pluginData.policy = JSON.parse(await adapter.read(policyPath));
-      imported = true;
-    }
-    if (await adapter.exists(statePath)) {
-      this.plugin.pluginData.state = JSON.parse(await adapter.read(statePath));
-      imported = true;
-    }
-    if (imported) await this.plugin.savePluginData();
-    return imported;
-  }
 }
 
 class PluginSyncManagerView extends ItemView {

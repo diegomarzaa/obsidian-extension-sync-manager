@@ -6,6 +6,7 @@
 - Added a release workflow for future tags that publishes `main.js`, `manifest.json`, and `styles.css`.
 - Added GitHub artifact attestations for future release assets using `actions/attest@v4`.
 - Replaced direct Node.js filesystem access with Obsidian's vault adapter for profile scanning, copying, backups, and removal.
+- Removed the one-time import flow for older external sync files now that state lives in `data.json`.
 - No new release was published for these changes.
 
 ## 0.1.2

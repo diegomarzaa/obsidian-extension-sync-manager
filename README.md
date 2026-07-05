@@ -29,8 +29,6 @@ Open Obsidian settings, then Extensions Sync Manager.
 
 Settings, policy, and baseline state are stored in `data.json`, the standard Obsidian data file.
 
-The migration button can import an older policy and state from the legacy sync folder into `data.json`. It does not remove the original files.
-
 ## Privacy
 
 Extensions Sync Manager does not use the network, telemetry, accounts, ads, or an auto-update mechanism.
