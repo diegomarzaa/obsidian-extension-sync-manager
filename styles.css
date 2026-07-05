@@ -1,0 +1,235 @@
+.plugin-sync-manager {
+  --psm-border: var(--background-modifier-border);
+  --psm-muted: var(--text-muted);
+  --psm-panel: var(--background-primary);
+  --psm-subtle: var(--background-secondary);
+  height: 100%;
+  overflow: auto;
+  padding: 14px;
+}
+
+.plugin-sync-manager * {
+  box-sizing: border-box;
+}
+
+.plugin-sync-manager h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.psm-toolbar {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) auto auto auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.psm-toolbar input,
+.psm-toolbar select,
+.psm-table select {
+  min-height: 32px;
+  border: 1px solid var(--psm-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding: 4px 8px;
+}
+
+.psm-button {
+  min-height: 32px;
+  border: 1px solid var(--psm-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding: 4px 9px;
+  cursor: pointer;
+}
+
+.psm-button-primary {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.psm-button-danger {
+  border-color: var(--text-error);
+  color: var(--text-error);
+}
+
+.psm-mini-button {
+  min-height: 26px;
+  padding: 2px 7px;
+  font-size: 12px;
+}
+
+.psm-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(90px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.psm-metric {
+  border: 1px solid var(--psm-border);
+  border-radius: 6px;
+  padding: 9px;
+  background: var(--psm-panel);
+}
+
+.psm-metric strong {
+  display: block;
+  font-size: 18px;
+}
+
+.psm-metric span,
+.psm-statusbar,
+.psm-meta,
+.psm-actual,
+.psm-details-summary {
+  color: var(--psm-muted);
+  font-size: 12px;
+}
+
+.psm-statusbar {
+  min-height: 20px;
+  margin-bottom: 8px;
+}
+
+.psm-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--psm-border);
+  background: var(--psm-panel);
+}
+
+.psm-table th,
+.psm-table td {
+  border-bottom: 1px solid var(--psm-border);
+  padding: 8px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.psm-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--psm-panel);
+  color: var(--psm-muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.psm-row-ok {
+  opacity: 0.72;
+}
+
+.psm-item-name {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.psm-badge {
+  display: inline-block;
+  border: 1px solid var(--psm-border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.psm-badge-ok {
+  color: var(--text-success);
+}
+
+.psm-badge-needs {
+  color: var(--text-warning);
+}
+
+.psm-badge-review {
+  color: var(--text-accent);
+}
+
+.psm-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  min-width: 170px;
+}
+
+.psm-details {
+  max-width: 650px;
+}
+
+.psm-details summary {
+  cursor: pointer;
+  color: var(--text-accent);
+  margin-bottom: 6px;
+}
+
+.psm-diff-item {
+  border: 1px solid var(--psm-border);
+  border-radius: 6px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.psm-diff-key {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--psm-border);
+  font-weight: 650;
+}
+
+.psm-diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.psm-diff-side {
+  min-width: 0;
+  border-right: 1px solid var(--psm-border);
+}
+
+.psm-diff-side:last-child {
+  border-right: 0;
+}
+
+.psm-diff-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--psm-border);
+  color: var(--psm-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.psm-changed-flag {
+  color: var(--text-warning);
+  text-transform: none;
+}
+
+.psm-value {
+  margin: 0;
+  padding: 8px;
+  max-height: 210px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--font-monospace);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .psm-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .psm-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

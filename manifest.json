@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-plugin-sync-manager",
+  "name": "Plugin Sync Manager",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Manage desktop and mobile Obsidian plugin/config sync from inside Obsidian.",
+  "author": "Diego Marza",
+  "isDesktopOnly": true
+}
