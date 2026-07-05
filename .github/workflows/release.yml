@@ -31,10 +31,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="${GITHUB_REF_NAME}"
+          awk "/^## ${tag}$/{flag=1; next} /^## /{flag=0} flag" CHANGELOG.md > release-notes.md
           gh release create "$tag" \
             --verify-tag \
             --title "$tag" \
-            --notes "Release $tag." \
+            --notes-file release-notes.md \
             main.js manifest.json styles.css
 
       - name: Attest release assets
